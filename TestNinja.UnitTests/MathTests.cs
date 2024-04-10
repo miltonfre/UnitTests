@@ -53,5 +53,15 @@ namespace TestNinja.UnitTests
             var result = _math.Max(1, 1);
             Assert.Equal(1, result);
         }
+
+        [Fact]  
+        public void GetOddNumbers_LimitIsGreaterThanZero_ReturnOddNumersUpToLimit()
+        {
+           var result= _math.GetOddNumbers(5);
+
+            Assert.Equivalent(new[] {1,3,5}, result);
+            var isUnique = result.Distinct().Count() == result.Count();
+            Assert.True(isUnique);
+        }
     }
 }
